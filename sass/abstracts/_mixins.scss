@@ -1,0 +1,62 @@
+@mixin ghostVerticalAlign(){
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; width: .1px;
+    }
+}
+
+@mixin truncateText($overflow: ellipsis){
+overflow: hidden;
+white-space: nowrap;
+text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+@mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
+    // There is a FF bug that requires all time values to have units, even 0 !!!!!!
+    -webkit-animation: $name $duration $iterations $timing-function $delay;
+    -moz-animation: $name $duration $iterations $timing-function $delay;
+    -o-animation: $name $duration $iterations $timing-function $delay;
+    animation: $name $duration $iterations $timing-function $delay;
+}
+
+
+@mixin alerted() {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 6px; right: 6px;
+      height: 8px; width: 8px;
+      @include border-radius(10px);
+      background-color: gold;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      height: 20px; width: 20px;
+      @include border-radius(20px);
+      background-color: transparent;
+      border: solid gold;
+      border-width: 2px; // animates
+      @include box-sizing(border-box);
+      @include animation($name: alertMe);
+    }
+  }
+  
+  @keyframes alertMe {
+    // -vendor prefixes omitted for brevity, but should be used in production
+    from {
+      border-width: 3px;
+      border-color: gold;
+    }
+    to {
+      border-width: 0;
+      border-color: rgba(gold, .1);
+    }
+  }
+
+
+
+

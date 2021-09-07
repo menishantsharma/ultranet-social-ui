@@ -1,0 +1,89 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  justify-content: space-between;
+  padding-left: 3rem;
+  min-width: 30rem;
+  background: #151728;
+
+  @media only screen and (max-width: 1400px) {
+    min-width: 26rem;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  &__logo {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-top: 10rem;
+    margin-left: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 5rem;
+  }
+  &__menu {
+    margin-bottom: 6rem;
+    .heading-3 {
+      font-size: 1.8rem;
+      margin-bottom: 4rem;
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      a {
+        text-decoration: none;
+        color: #9c9cab;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 1.4rem;
+          margin-right: 1rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__favourite {
+    .heading-3 {
+      font-size: 1.8rem;
+
+      margin-bottom: 4rem;
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #9c9cab;
+        font-size: 1.4rem;
+        svg {
+          width: 1.4rem;
+          color: currentColor;
+          margin-right: 1rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
